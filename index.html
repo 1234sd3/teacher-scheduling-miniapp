@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>老师排课助手</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">A</div>
+          <div>
+            <p class="eyebrow">SCHEDULER</p>
+            <h1>老师排课助手</h1>
+          </div>
+        </div>
+
+        <div class="teacher-card">
+          <div class="avatar">W</div>
+          <div>
+            <h2>王老师</h2>
+            <p>语文 / 阅读教学</p>
+          </div>
+        </div>
+
+        <form id="schedule-form" class="schedule-form">
+          <h3>新增课程</h3>
+
+          <label>
+            <span>老师</span>
+            <input type="text" id="teacher" value="王老师" required />
+          </label>
+
+          <label>
+            <span>课程名</span>
+            <input type="text" id="course" placeholder="如：语文基础课" required />
+          </label>
+
+          <label>
+            <span>学生</span>
+            <input type="text" id="student" placeholder="如：李同学" required />
+          </label>
+
+          <div class="two-col">
+            <label>
+              <span>日期</span>
+              <select id="day" required>
+                <option value="Mon">周一</option>
+                <option value="Tue">周二</option>
+                <option value="Wed">周三</option>
+                <option value="Thu">周四</option>
+                <option value="Fri">周五</option>
+                <option value="Sat">周六</option>
+                <option value="Sun">周日</option>
+              </select>
+            </label>
+
+            <label>
+              <span>教室</span>
+              <input type="text" id="room" value="A101" required />
+            </label>
+          </div>
+
+          <div class="two-col">
+            <label>
+              <span>开始</span>
+              <input type="time" id="start" value="09:00" required />
+            </label>
+
+            <label>
+              <span>结束</span>
+              <input type="time" id="end" value="10:30" required />
+            </label>
+          </div>
+
+          <button type="submit" class="primary-btn">添加到课程表</button>
+        </form>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Dashboard</p>
+            <h2>课程总览</h2>
+          </div>
+          <button id="reset-btn" class="ghost-btn">重置示例数据</button>
+        </header>
+
+        <section class="stats-grid">
+          <article class="stat-card accent-blue">
+            <span>总课程</span>
+            <strong id="total-lessons">0</strong>
+          </article>
+          <article class="stat-card accent-green">
+            <span>本周课时</span>
+            <strong id="weekly-hours">0h</strong>
+          </article>
+          <article class="stat-card accent-orange">
+            <span>冲突提醒</span>
+            <strong id="conflict-count">0</strong>
+          </article>
+          <article class="stat-card accent-purple">
+            <span>空闲时段</span>
+            <strong id="free-slot-count">0</strong>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <div class="panel full-width">
+            <div class="panel-header">
+              <h3>本周课程表</h3>
+              <span>按周视图展示</span>
+            </div>
+            <div id="week-view" class="week-view"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>课程列表</h3>
+              <span>已安排课程</span>
+            </div>
+            <div id="schedule-list" class="schedule-list"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>冲突检测</h3>
+              <span>注意时间重叠</span>
+            </div>
+            <div id="conflict-panel" class="conflict-panel"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
